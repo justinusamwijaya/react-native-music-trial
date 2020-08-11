@@ -3,11 +3,6 @@ import { Text, View, StyleSheet, Image, Linking } from 'react-native'
 import Card from './common/Card.js'
 
 const styles = StyleSheet.create({
-    cardSectionHeader: {
-      display:'flex',
-      flexDirection:'column',
-      justifyContent:'space-around',
-    },
     textStyle: {
       color: 'white',
       position: 'absolute',
@@ -25,7 +20,7 @@ const styles = StyleSheet.create({
       bottom: 0,
       zIndex: 2
     },
-    testStyle: {
+    viewStyle: {
       flex: 1,
       justifyContent:'center',
       alignItems: 'center'
@@ -38,16 +33,12 @@ const styles = StyleSheet.create({
       bottom: 0,
       zIndex: 1
     },
-    thumbnailContainer: {
-      marginRight: 10,
-      marginLeft: 10,
-    },
 });
 
 const CardDisplay = ({ albumLength, album }) => {
   return (
       <Card song={album.soundFile} totalCards={albumLength} order={album.order}>
-        <View style={styles.testStyle}>
+        <View style={styles.viewStyle}>
           <Text style={styles.textStyle}>{album.title}</Text>
           <View style={styles.overlayStyle}></View>
           <Image style={styles.thumbnailStyle} source={{uri: album.backgroundImg}} />

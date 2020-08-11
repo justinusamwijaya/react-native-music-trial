@@ -39,7 +39,7 @@ export default class App extends Component {
         
       <Provider store={store}>
         <View>
-          <Text style={styles.titleMargin}>Random Music</Text>
+          <Text style={styles.titleMargin}>Random Music Player</Text>
         </View>
         <View style={styles.container}>
           {this.renderAlbums()}
@@ -58,8 +58,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   titleMargin: {
-    marginTop: 100,
-    marginBottom: 100,
-    textAlign: 'center'
+    marginTop: 150,
+    marginBottom: 50,
+    textAlign: 'center',
+    fontSize: 28,
+    color: '#63ccc5'
   }
 });
