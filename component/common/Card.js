@@ -19,7 +19,7 @@ export default connect(mapStateToProps, { changeCurrentIndex })(class Card exten
         cardsPan: new Animated.ValueXY(),  
         cardsStackedAnim: new Animated.Value( 0 ), // add this statement
         outputRangeTop: [(this.props.order - 1) * 20, this.props.order * 20]
-     }
+    }
 
     cardsPanResponder = PanResponder.create( {
         onStartShouldSetPanResponder: () => true,
@@ -62,29 +62,29 @@ export default connect(mapStateToProps, { changeCurrentIndex })(class Card exten
                     })
             } );
         },
-      } )
+    } )
 
-        async componentDidMount() {
-            try {
-                await Audio.setAudioModeAsync({
-                allowsRecordingIOS: false,
-                interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
-                playsInSilentModeIOS: true,
-                interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
-                shouldDuckAndroid: true,
-                staysActiveInBackground: true,
-                playThroughEarpieceAndroid: true
-                })
+    async componentDidMount() {
+        try {
+            await Audio.setAudioModeAsync({
+            allowsRecordingIOS: false,
+            interruptionModeIOS: Audio.INTERRUPTION_MODE_IOS_DO_NOT_MIX,
+            playsInSilentModeIOS: true,
+            interruptionModeAndroid: Audio.INTERRUPTION_MODE_ANDROID_DUCK_OTHERS,
+            shouldDuckAndroid: true,
+            staysActiveInBackground: true,
+            playThroughEarpieceAndroid: true
+            })
 
-                if(!this.props.indexes.indexOf(this.props.order)) this.playSong()
-            } catch (e) {
-                console.log(e)
-            }
-        }
-        
-        componentDidUpdate() {
             if(!this.props.indexes.indexOf(this.props.order)) this.playSong()
+        } catch (e) {
+            console.log(e)
         }
+    }
+    
+    componentDidUpdate() {
+        if(!this.props.indexes.indexOf(this.props.order)) this.playSong()
+    }
 
     async playSong() {
         try {
